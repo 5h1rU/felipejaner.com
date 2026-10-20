@@ -35,7 +35,7 @@ function App() {
               and I care about shipping them with tests and a working deploy.
             </p>
             <p className="m-0 max-w-2xl text-base leading-7 text-[var(--sea-ink-soft)] sm:text-lg sm:leading-8">
-              I’ve been publishing code on GitHub since 2011.
+              I’ve been on GitHub since 2011.
             </p>
           </div>
         </div>

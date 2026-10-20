@@ -16,10 +16,11 @@ export default function Footer() {
             rel="noopener noreferrer me"
           >
             GitHub
+            <span className="sr-only"> (opens in a new tab)</span>
           </a>
           <span aria-hidden="true"> · </span>
           <a href={profile.x} target="_blank" rel="noopener noreferrer me">
-            X
+            X<span className="sr-only"> (opens in a new tab)</span>
           </a>
         </p>
       </div>

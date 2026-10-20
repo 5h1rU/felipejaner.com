@@ -140,7 +140,6 @@ a:hover {
 :focus-visible {
   outline: 3px solid var(--lagoon-deep);
   outline-offset: 3px;
-  border-radius: 6px;
 }
 
 .skip-link {
