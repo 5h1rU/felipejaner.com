@@ -1,5 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { contacts, profile, projects } from '../data/profile'
+import { contacts, experience, profile, projects } from '../data/profile'
 
 export const Route = createFileRoute('/')({ component: App })
 
@@ -29,10 +29,11 @@ function App() {
               Hi, I’m Felipe Janer.
             </h1>
             <p className="mb-4 max-w-2xl text-base leading-7 text-[var(--sea-ink-soft)] sm:text-lg sm:leading-8">
-              I’m a software engineer based in {profile.location}. I build web
+              I’m a senior software engineer based in {profile.location}. From
+              2021 to 2026 I was at Recharge, leading frontend architecture for
+              subscription commerce across Shopify storefronts. I build web
               products end to end — React and TypeScript front ends, typed
-              APIs, and backends that run on Cloudflare’s edge or on the JVM —
-              and I care about shipping them with tests and a working deploy.
+              APIs, and backends that run on Cloudflare’s edge or on the JVM.
             </p>
             <p className="m-0 max-w-2xl text-base leading-7 text-[var(--sea-ink-soft)] sm:text-lg sm:leading-8">
               I’ve been on GitHub since 2011.
@@ -47,6 +48,62 @@ function App() {
             Get in touch
           </a>
         </div>
+      </section>
+
+      <section aria-labelledby="experience" className="mt-14">
+        <p className="island-kicker mb-2">Experience</p>
+        <h2
+          id="experience"
+          className="display-title mb-6 scroll-mt-28 text-3xl font-bold text-[var(--sea-ink)] sm:text-4xl"
+        >
+          Where I’ve worked
+        </h2>
+        <ol className="m-0 list-none p-0">
+          {experience.map((job) => (
+            <li
+              key={job.company}
+              className="island-shell rise-in rounded-2xl p-6 sm:p-8"
+            >
+              <article>
+                <div className="mb-3 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                  <h3 className="m-0 text-xl font-semibold text-[var(--sea-ink)]">
+                    {job.role} · {job.company}
+                  </h3>
+                  <p className="m-0 text-sm font-semibold text-[var(--sea-ink-soft)]">
+                    <time dateTime={job.start.iso}>{job.start.label}</time>
+                    {' – '}
+                    <time dateTime={job.end.iso}>{job.end.label}</time>
+                  </p>
+                </div>
+                <p className="mb-4 max-w-3xl text-base leading-7 text-[var(--sea-ink-soft)]">
+                  {job.summary}
+                </p>
+                <ul className="mb-5 max-w-3xl list-disc space-y-2 pl-5 text-sm leading-6 text-[var(--sea-ink-soft)]">
+                  {job.highlights.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+                <p className="m-0 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold">
+                  {job.links.map((link) => (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {link.label}
+                      <span className="sr-only">
+                        {' '}
+                        for {job.company} (opens in a new tab)
+                      </span>
+                      <span aria-hidden="true"> ↗</span>
+                    </a>
+                  ))}
+                </p>
+              </article>
+            </li>
+          ))}
+        </ol>
       </section>
 
       <section aria-labelledby="work" className="mt-14 scroll-mt-24">

@@ -1,6 +1,7 @@
 // Every fact and link here comes from public sources: the github.com/5h1rU
 // profile, the READMEs of the linked repositories, and the npm registry.
-// The email address was supplied by Felipe for this page.
+// The email address and the Recharge experience were supplied by Felipe
+// for this page.
 
 export const profile = {
   name: 'Felipe Janer',
@@ -21,7 +22,79 @@ export type Project = {
   links: ProjectLink[]
 }
 
+export type Experience = {
+  company: string
+  role: string
+  start: { label: string; iso: string }
+  end: { label: string; iso: string }
+  summary: string
+  highlights: string[]
+  links: ProjectLink[]
+}
+
+export const experience: Experience[] = [
+  {
+    company: 'Recharge',
+    role: 'Senior Software Engineer',
+    start: { label: 'Nov 2021', iso: '2021-11' },
+    end: { label: 'Mar 2026', iso: '2026-03' },
+    summary:
+      'Led frontend architecture and built subscription commerce products used across a large base of Shopify storefronts.',
+    highlights: [
+      'Affinity 2.0, the customer portal Recharge still uses today: I led its frontend architecture and built the experience that lets subscribers manage orders, swap products, adjust delivery schedules, and update payment and shipping details.',
+      'Unity Shopify Extension: led architecture and delivery, bringing Recharge’s subscription functionality into Shopify’s native checkout and storefront experiences.',
+      'Shipped AI-driven features and guided technical design and reviews across squads, with a focus on performance, reliability, and maintainable frontend architecture.',
+    ],
+    links: [
+      {
+        label: 'Customer portal demo',
+        href: 'https://getrecharge.com/wp-content/uploads/2026/02/Recharge_Customer_FS_with_SFX.mp4',
+      },
+      {
+        label: 'Affinity customer portal',
+        href: 'https://getrecharge.com/customer-portal/',
+      },
+    ],
+  },
+]
+
 export const projects: Project[] = [
+  {
+    title: 'Nimblers',
+    summary:
+      'A product that builds the internal apps a team needs from a plain description, using the company’s own data and permissions. Its multi-tenant backend keeps global accounts in D1 and each organization’s data in its own Durable Object SQLite database, structured with Effect-TS clean architecture.',
+    stack: [
+      'Cloudflare Workers',
+      'Durable Objects',
+      'D1',
+      'Effect-TS',
+      'React Server Components',
+      'Drizzle',
+    ],
+    links: [
+      { label: 'nimblers.co', href: 'https://nimblers.co' },
+      { label: 'Source', href: 'https://github.com/nimblerscode/nimblers' },
+    ],
+  },
+  {
+    title: 'WandStore',
+    summary:
+      'A persona-driven, AI-native e-commerce platform that generates a personalized storefront UI for each shopper with LLMs at the edge. First visits get an instant fallback while generation runs in a pool of Cloudflare Containers; return visits are served from an R2 + KV cache, with Shopify handling catalog and checkout.',
+    stack: [
+      'Cloudflare Workers',
+      'Durable Objects',
+      'Containers',
+      'R2',
+      'KV',
+      'Shopify',
+    ],
+    links: [
+      {
+        label: 'Architecture docs',
+        href: 'https://github.com/wandstore/docs',
+      },
+    ],
+  },
   {
     title: 'H3 Conversational Video',
     summary:
